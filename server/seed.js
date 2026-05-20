@@ -1,0 +1,26 @@
+import mongoose from "mongoose";
+import Car from "./models/Car.js";
+
+await mongoose.connect("your-mongodb-uri");
+
+await Car.insertMany([
+  { name: "Toyota Camry", type: "Sedan", seats: 4, pricePerDay: 70000, totalUnits: 2, image: "toyota-camry.jpg" },
+  { name: "Nissan Altima", type: "Sedan", seats: 4, pricePerDay: 75000, totalUnits: 2, image: "nissan-altima.jpg" },
+  { name: "Lexus GX 460", type: "SUV", seats: 7, pricePerDay: 220000, totalUnits: 1, image: "lexus-gx-460.jpg" },
+  { name: "Honda CR-V", type: "SUV", seats: 7, pricePerDay: 90000, totalUnits: 2, image: "honda-crv.jpeg" },
+  { name: "Toyota Prado", type: "SUV", seats: 7, pricePerDay: 180000, totalUnits: 1, image: "toyota-prado.jpg" },
+  { name: "Hyundai Tucson", type: "SUV", seats: 5, pricePerDay: 85000, totalUnits: 2, image: "hyundai-tucson.jpg" },
+  { name: "Kia Sportage", type: "SUV", seats: 5, pricePerDay: 80000, totalUnits: 2, image: "kia-sportage.jpg" },
+  { name: "Mercedes C-Class", type: "Luxury", seats: 4, pricePerDay: 180000, totalUnits: 1, image: "merc-c-class.jpg" },
+  { name: "BMW X5", type: "Luxury", seats: 5, pricePerDay: 250000, totalUnits: 1, image: "bmw-x5.jpg" },
+  { name: "Audi A6", type: "Luxury", seats: 4, pricePerDay: 210000, totalUnits: 1, image: "audi-a6.jpg" },
+  { name: "Range Rover Sport", type: "Luxury", seats: 5, pricePerDay: 300000, totalUnits: 1, image: "range-rover-sport.jpg" },
+  { name: "Mercedes GLE", type: "Luxury", seats: 5, pricePerDay: 280000, totalUnits: 1, image: "mercedes-gle.jpg" },
+  { name: "Porsche Cayenne", type: "Luxury", seats: 5, pricePerDay: 450000, totalUnits: 1, image: "porsche-cayenne.jpg" },
+  { name: "Ferrari SF90", type: "Exotic", seats: 2, pricePerDay: 1500000, totalUnits: 1, image: "ferrari-sf90.jpg" },
+  { name: "Lamborghini Huracán", type: "Exotic", seats: 2, pricePerDay: 1700000, totalUnits: 1, image: "lamborghini-huracan.jpg" },
+  { name: "Rolls Royce Ghost", type: "Exotic", seats: 4, pricePerDay: 2000000, totalUnits: 1, image: "rolls-royce-ghost.jpg" },
+]);
+
+console.log("Cars seeded!");
+mongoose.disconnect();

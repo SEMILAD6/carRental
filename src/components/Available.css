@@ -1,0 +1,161 @@
+.available-page {
+  background: #111;
+  color: white;
+  min-height: 100vh;
+  padding: 80px 8%;
+}
+
+.available-header {
+  margin-bottom: 40px;
+}
+
+.available-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.trip-summary {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.trip-summary span {
+  background: #1a1a1a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.results-count {
+  color: #d4af37;
+  font-size: 14px;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+.status-msg {
+  color: #aaa;
+  font-size: 15px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.status-msg.error { color: #e74c3c; }
+
+.available-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.vehicle-card {
+  background: #1a1a1a;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.vehicle-card:hover:not(.unavailable) {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(212,175,55,0.2);
+}
+
+.vehicle-card.unavailable {
+  opacity: 0.5;
+}
+
+.card-img-wrapper {
+  position: relative;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.unavailable-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e74c3c;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.units-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #d4af37;
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.vehicle-info { padding: 20px; }
+
+.vehicle-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.vehicle-info p {
+  color: #bbb;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.vehicle-details {
+  display: flex;
+  justify-content: space-between;
+  color: #d4af37;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.trip-price {
+  color: #fff;
+  font-size: 13px;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background: rgba(212,175,55,0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(212,175,55,0.2);
+}
+
+.vehicle-info button {
+  width: 100%;
+  background: #d4af37;
+  color: black;
+  border: none;
+  border-radius: 30px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.vehicle-info button:hover:not(.btn-disabled) {
+  background: #e5c158;
+  transform: translateY(-2px);
+}
+
+.btn-disabled {
+  background: #333 !important;
+  color: #666 !important;
+  cursor: not-allowed !important;
+}

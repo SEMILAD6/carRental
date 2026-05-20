@@ -1,0 +1,111 @@
+.confirm-page {
+  background: #111;
+  color: white;
+  min-height: 100vh;
+  padding: 80px 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-card {
+  background: #1a1a1a;
+  border-radius: 24px;
+  padding: 50px 40px;
+  max-width: 540px;
+  width: 100%;
+  text-align: center;
+}
+
+.confirm-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(212,175,55,0.15);
+  border: 2px solid #d4af37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #d4af37;
+  margin: 0 auto 24px;
+}
+
+.confirm-card h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.confirm-subtitle {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.ref-box {
+  background: rgba(212,175,55,0.08);
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ref-box span { color: #888; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+.ref-box strong { color: #d4af37; font-size: 1.4rem; letter-spacing: 2px; }
+
+.confirm-details { text-align: left; margin-bottom: 24px; }
+
+.confirm-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: #aaa;
+}
+
+.confirm-row span:last-child { color: white; }
+
+.confirm-row.total {
+  color: #d4af37;
+  font-weight: 700;
+  font-size: 15px;
+  border-bottom: none;
+}
+
+.confirm-row.total span:last-child { color: #d4af37; }
+
+.status-badge {
+  background: rgba(39,174,96,0.15);
+  color: #27ae60;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.save-note {
+  color: #666;
+  font-size: 12px;
+  margin-bottom: 28px;
+}
+
+.home-btn {
+  background: #d4af37;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 40px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.2s;
+}
+
+.home-btn:hover { background: #e5c158; }
