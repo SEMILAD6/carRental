@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { createReservation } from "../api/reservations";
+import { createReservation } from "../Api/reservations";
 import "./Booking.css";
 
 function Booking() {
