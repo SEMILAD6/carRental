@@ -11,8 +11,6 @@ import Available from "./components/Available.jsx";
 import Booking from "./components/Booking.jsx";
 import Confirm from "./components/Confirm.jsx";
 import Schedule from "./components/Schedule.jsx";
-import { useState, useEffect } from "react";
-import { getAllCars } from "./api/reservations";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import "./App.css";
