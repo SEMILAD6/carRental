@@ -155,7 +155,7 @@ function Home() {
         <div className="vehicle-grid">
           {featuredCars.map((car) => (
             <div key={car._id} className="vehicle-card">
-              <img src={`src/assets/${car.image}`} alt={car.name} />
+              <img src={car.image} alt={car.name} />
               <div className="vehicle-info">
                 <h3>{car.name}</h3>
                 <p>{car.type}</p>

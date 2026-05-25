@@ -116,7 +116,7 @@ function Schedule() {
 
       {/* Car Details */}
       <div className="schedule-hero">
-        <img src={`src/assets/${car.image}`} alt={car.name} />
+        <img src={car.image} alt={car.name} />
         <div className="schedule-hero-info">
           <p className="car-type-label">{car.type}</p>
           <h1>{car.name}</h1>
