@@ -14,7 +14,7 @@ import reservationRoutes from "./routes/reservations.js";
 
 const app = express();
 
-app.use(cors({ origin: ["https://carrental-yrah.onrender.com"], credentials: true }));
+app.use(cors({ origin: "https://car-rental-eight-pink.vercel.app", credentials: true }));
 app.use(express.json());
 
 // Routes
