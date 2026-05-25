@@ -1,12 +1,16 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+
+
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import dotenv from "dotenv";
 import carRoutes from "./routes/cars.js";
 import reservationRoutes from "./routes/reservations.js";
 
 
-dotenv.config();
+
 
 const app = express();
 

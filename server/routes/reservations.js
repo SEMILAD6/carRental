@@ -16,6 +16,8 @@ router.post("/", async (req, res) => {
     returnDate,
   } = req.body;
 
+  console.log("Reservation request body:", req.body); // line 9 — after destructuring
+
   try {
     const pickup = new Date(pickupDate);
     const returnD = new Date(returnDate);
@@ -83,6 +85,21 @@ router.get("/", async (req, res) => {
       .sort({ createdAt: -1 });
     res.json(reservations);
   } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+// GET all reservations for a specific car
+router.get("/car/:carId", async (req, res) => {
+  try {
+    const reservations = await Reservation.find({
+      car: req.params.carId,
+      status: { $ne: "cancelled" },
+    }).select("pickupDate returnDate status");
+
+    res.json(reservations);
+  } catch (err) {
+    console.error("Reservation error:", err);
     res.status(500).json({ message: "Server error" });
   }
 });

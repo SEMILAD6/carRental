@@ -38,7 +38,7 @@ function Booking() {
         returnDate,
       });
 
-      navigate("/confirmation", { state: { reservation: result.reservation } });
+      navigate("/confirm", { state: { reservation: result.reservation } });
     } catch (err) {
       setError(err.message);
     } finally {

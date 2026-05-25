@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getAllCars } from "../api/reservations";
 import "./home.css";
 
 function Home() {
@@ -12,7 +13,21 @@ function Home() {
     vehicleType: ""
   });
 
+  const [featuredCars, setFeaturedCars] = useState([]);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const data = await getAllCars();
+        // Just show first 5 as featured
+        setFeaturedCars(data.slice(0, 5));
+      } catch (err) {
+        console.error("Could not load featured cars:", err);
+      }
+    };
+    fetchCars();
+  }, []);
 
   const handleChange = (e) => {
     setReservation({ ...reservation, [e.target.name]: e.target.value });
@@ -38,9 +53,7 @@ function Home() {
       location: reservation.location,
     });
 
-    if (reservation.vehicleType) {
-      params.append("type", reservation.vehicleType);
-    }
+    if (reservation.vehicleType) params.append("type", reservation.vehicleType);
 
     navigate(`/available?${params}`);
   };
@@ -63,28 +76,28 @@ function Home() {
               <div className="res-field">
                 <label>Pick-up Location</label>
                 <select name="location" value={reservation.location} onChange={handleChange}>
-                  <option value="">Select location</option>
-                  <optgroup label="Lagos">
-                    <option value="Lekki Phase 1">Lekki Phase 1</option>
-                    <option value="Lekki Phase 2">Lekki Phase 2</option>
-                    <option value="Ajah">Ajah</option>
-                    <option value="Chevron">Chevron</option>
-                    <option value="Victoria Island">Victoria Island</option>
-                    <option value="Ikoyi">Ikoyi</option>
-                    <option value="Surulere">Surulere</option>
-                    <option value="Ikeja">Ikeja</option>
-                    <option value="Ikeja GRA">Ikeja GRA</option>
-                    <option value="Apapa">Apapa</option>
-                  </optgroup>
-                  <optgroup label="Abuja">
-                    <option value="Wuse">Wuse</option>
-                    <option value="Maitama">Maitama</option>
-                    <option value="Garki">Garki</option>
-                    <option value="Asokoro">Asokoro</option>
-                  </optgroup>
-                  <optgroup label="Other Cities">
-                    <option value="Port Harcourt">Port Harcourt</option>
-                    <option value="Ibadan">Ibadan</option>
+                <option value="">Select location</option>
+                <optgroup label="Lagos">
+                 <option value="Lekki Phase 1">Lekki Phase 1</option>
+                 <option value="Lekki Phase 2">Lekki Phase 2</option>
+                 <option value="Ajah">Ajah</option>
+                 <option value="Chevron">Chevron</option>
+                 <option value="Victoria Island">Victoria Island</option>
+                 <option value="Ikoyi">Ikoyi</option>
+                 <option value="Surulere">Surulere</option>
+                 <option value="Ikeja">Ikeja</option>
+                 <option value="Ikeja GRA">Ikeja GRA</option>
+                 <option value="Apapa">Apapa</option>
+                </optgroup>
+                <optgroup label="Abuja">
+                 <option value="Wuse">Wuse</option>
+                 <option value="Maitama">Maitama</option>
+                 <option value="Garki">Garki</option>
+                 <option value="Asokoro">Asokoro</option>
+                </optgroup>
+                <optgroup label="Other Cities">
+                  <option value="Port Harcourt">Port Harcourt</option>
+                  <option value="Ibadan">Ibadan</option>
                     <option value="Enugu">Enugu</option>
                   </optgroup>
                 </select>
@@ -135,101 +148,27 @@ function Home() {
         <div className="vehicles-header">
           <h2>Featured Vehicles</h2>
           <Link to="/vehicles">
-            <button className="view-all-btn">
-              View All Vehicles
-            </button>
+            <button className="view-all-btn">View All Vehicles</button>
           </Link>
         </div>
 
         <div className="vehicle-grid">
-          {/* CAR 1 */}
-          <div className="vehicle-card">
-            <img
-              src="src/assets/merc-c-class.jpg"
-              alt="Mercedes C-Class"
-            />
-
-            <div className="vehicle-info">
-              <h3>Mercedes C-Class</h3>
-              <p>Luxury Sedan</p>
-             <div className="vehicle-details">
-               <span>4 Seats</span>
-               <span>₦180,000/day</span>
-             </div>
-             <button>Rent Now</button>
-            </div>
-          </div>
-          
-
-          {/* CAR 2 */}
-          <div className="vehicle-card">
-            <img
-             src="src/assets/toyota-camry.jpg"
-             alt="Toyota Camry"
-            />
-
-            <div className="vehicle-info">
-              <h3>Toyota Camry</h3>
-              <p>Sedan</p>
-              <div className="vehicle-details">
-                <span>4 Seats</span>
-                <span>₦70,000/day</span>
+          {featuredCars.map((car) => (
+            <div key={car._id} className="vehicle-card">
+              <img src={`src/assets/${car.image}`} alt={car.name} />
+              <div className="vehicle-info">
+                <h3>{car.name}</h3>
+                <p>{car.type}</p>
+                <div className="vehicle-details">
+                  <span>{car.seats} Seats</span>
+                  <span>₦{car.pricePerDay.toLocaleString()}/day</span>
+                </div>
+                <button onClick={() => navigate(`/schedule/${car._id}`)}>
+                  Rent Now
+                </button>
               </div>
-              <button>Rent Now</button>
             </div>
-          </div>
-
-          {/* CAR 3 */}
-          <div className="vehicle-card">
-            <img
-             src="src/assets/lexus-gx-460.jpg"
-              alt="Lexus GX 460"
-            />
-            <div className="vehicle-info">
-              <h3>Lexus GX 460</h3>
-              <p>SUV</p>
-
-              <div className="vehicle-details">
-                <span>7 Seats</span>
-                <span>₦220,000/day</span>
-              </div>
-              <button>Rent Now</button>
-            </div>
-          </div>
-
-          {/* CAR 4 */}
-          <div className="vehicle-card">
-            <img
-              src="src/assets/bmw-x5.jpg"
-              alt="BMW X5"
-            />
-            <div className="vehicle-info">
-              <h3>BMW X5</h3>
-              <p>Luxury SUV</p>
-              <div className="vehicle-details">
-                <span>5 Seats</span>
-                <span>₦250,000/day</span>
-              </div>
-              <button>Rent Now</button>
-            </div>
-          </div>
-
-          {/* CAR 5 */}
-          <div className="vehicle-card">
-            <img
-              src="src/assets/honda-crv.jpeg"
-              alt="Honda CR-V"
-            />
-            <div className="vehicle-info">
-              <h3>Honda CR-V</h3>
-              <p>SUV</p>
-              <div className="vehicle-details">
-                <span>7 Seats</span>
-                <span>₦90,000/day</span>
-              </div>
-              <button>Rent Now</button>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
@@ -237,4 +176,3 @@ function Home() {
 }
 
 export default Home;
-

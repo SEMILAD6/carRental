@@ -30,3 +30,24 @@ export const getReservation = async (reference) => {
   if (!res.ok) throw new Error(data.message);
   return data;
 };
+
+export const getCarReservations = async (carId) => {
+  const res = await fetch(`${BASE_URL}/reservations/car/${carId}`);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message);
+  return data;
+};
+
+export const getCarById = async (carId) => {
+  const res = await fetch(`${BASE_URL}/cars/${carId}`);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message);
+  return data;
+};
+
+export const getAllCars = async () => {
+  const res = await fetch(`${BASE_URL}/cars`);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message);
+  return data;
+};

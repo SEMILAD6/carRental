@@ -18,13 +18,6 @@ reservationSchema.pre("save", function (next) {
   if (!this.referenceNumber) {
     this.referenceNumber = "GCR-" + Date.now().toString(36).toUpperCase();
   }
-
-  // Auto-calculate total price
-  const days = Math.ceil(
-    (this.returnDate - this.pickupDate) / (1000 * 60 * 60 * 24)
-  );
-  this.totalPrice = days * (this.totalPricePerDay || 0);
-
   next();
 });
 

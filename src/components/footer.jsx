@@ -25,8 +25,8 @@ function Footer() {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/vehicles">Vehicles</Link></li>
-            <li><Link to="#">About Us</Link></li>
-            <li><Link to="#">Contact</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 
@@ -34,10 +34,10 @@ function Footer() {
         <div className="footer-links">
           <h4>Vehicle Types</h4>
           <ul>
-            <li><Link to="/vehicles">Sedans</Link></li>
-            <li><Link to="/vehicles">SUVs</Link></li>
-            <li><Link to="/vehicles">Luxury</Link></li>
-            <li><Link to="/vehicles">Exotics</Link></li>
+            <li><Link to="/vehicles#sedans">Sedans</Link></li>
+            <li><Link to="/vehicles#suvs">SUVs</Link></li>
+            <li><Link to="/vehicles#luxury">Luxury</Link></li>
+            <li><Link to="/vehicles#exotics">Exotics</Link></li>
           </ul>
         </div>
 
