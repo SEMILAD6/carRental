@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { getAvailableCars } from "../api/reservations";
+import { getAvailableCars } from "../Api/reservations";
 import "./Available.css";
 
 function Available() {

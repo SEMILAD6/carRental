@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getAllCars } from "../api/reservations";
+import { getAllCars } from "../Api/reservations";
 import "./vehicles.css";
 
 function Vehicles() {
