@@ -74,7 +74,7 @@ function Available() {
                 className={`vehicle-card ${!car.isAvailable ? "unavailable" : ""}`}
               >
                 <div className="card-img-wrapper">
-                  <img src={`src/assets/${car.image}`} alt={car.name} />
+                  <img src={car.image} alt={car.name} />
                   {!car.isAvailable && (
                     <div className="unavailable-overlay">Fully Booked</div>
                   )}

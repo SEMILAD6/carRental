@@ -63,7 +63,7 @@ function Booking() {
 
         <div className="booking-summary">
           <h2>Your Selection</h2>
-          <img src={`src/assets/${car.image}`} alt={car.name} />
+          <img src={car.image} alt={car.name} />
           <h3>{car.name}</h3>
           <p>{car.type} · {car.seats} Seats</p>
 
