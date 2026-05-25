@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000/api";
+const BASE_URL = "https://carrental-yrah.onrender.com";
 
 export const getAvailableCars = async ({ pickupDate, returnDate, type }) => {
   const params = new URLSearchParams({ pickupDate, returnDate });
