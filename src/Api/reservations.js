@@ -1,4 +1,4 @@
-const BASE_URL = "https://carrental-yrah.onrender.com";
+const BASE_URL = "https://carrental-aodv.onrender.com";
 
 export const getAvailableCars = async ({ pickupDate, returnDate, type }) => {
   const params = new URLSearchParams({ pickupDate, returnDate });
