@@ -21,6 +21,10 @@ app.use(express.json());
 app.use("/api/cars", carRoutes);
 app.use("/api/reservations", reservationRoutes);
 
+app.get("/health", (req, res) => {
+  res.send("Car Rental API is running");
+});
+
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
