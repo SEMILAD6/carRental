@@ -159,3 +159,9 @@
   color: #666 !important;
   cursor: not-allowed !important;
 }
+
+@media (max-width: 480px) {
+  .available-header h1 { font-size: 1.8rem; }
+  .trip-summary { gap: 10px; }
+  .trip-summary span { font-size: 12px; padding: 5px 10px; }
+}

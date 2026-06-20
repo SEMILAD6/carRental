@@ -247,3 +247,10 @@
   .schedule-hero { grid-template-columns: 1fr; }
   .schedule-body { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 480px) {
+  .schedule-hero h1 { font-size: 1.8rem; }
+  .schedule-hero img { height: 220px; }
+  .car-meta { gap: 8px; }
+  .car-meta span { font-size: 12px; padding: 6px 12px; }
+}

@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 
 import Home from "./components/home.jsx";
+import Navbar from "./components/Navbar.jsx";
 import Vehicles from "./components/vehicles.jsx";
 import Footer from "./components/footer.jsx";
 import Available from "./components/Available.jsx";
@@ -22,7 +23,7 @@ function App() {
   return (
 
     <BrowserRouter>
-
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/vehicles" element={<Vehicles />} />

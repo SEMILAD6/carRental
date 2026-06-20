@@ -104,8 +104,22 @@
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
+    gap: 30px;
   }
   .footer-brand {
     grid-column: 1 / -1;
+  }
+
+
+  .footer-link {
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
   }
 }

@@ -109,3 +109,10 @@
 }
 
 .home-btn:hover { background: #e5c158; }
+
+@media (max-width: 480px) {
+  .confirm-page { padding: 40px 5%; }
+  .confirm-card { padding: 36px 24px; }
+  .confirm-card h1 { font-size: 1.6rem; }
+  .ref-box strong { font-size: 1.1rem; letter-spacing: 1px; }
+}

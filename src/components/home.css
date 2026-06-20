@@ -210,6 +210,9 @@
   .res-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .home-text h1 { font-size: 2.2rem; }
+  .vehicles-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .vehicles-header h2 { font-size: 1.8rem; }
 }
 
 @media (max-width: 480px) {
@@ -219,6 +222,9 @@
   .reservation-box {
     padding: 20px 16px;
   }
+  .home-text h1 { font-size: 1.8rem; }
+  .home-text h2 { font-size: 1rem; }
+  .hero-section { padding: 20px; }
 }
 
 
